@@ -1,0 +1,30 @@
+{
+    "name": "chrisrhymes/bulma-blade-ui",
+    "description": "A set of Bulma components for Laravel Blade",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "chrisrhymes",
+            "email": "csrhymes@gmail.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "BulmaBladeUi\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "BulmaBladeUi\\BulmaBladeUiServiceProvider"
+            ]
+        }
+    }
+}
