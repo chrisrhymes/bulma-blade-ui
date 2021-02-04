@@ -14,8 +14,8 @@ class BulmaBladeUiServiceProvider extends ServiceProvider
 
         $this->loadViewsFrom(__DIR__.'/../resources/views', 'bbui');
 
-        $this->loadViewComponentsAs('bbui', [
-            
+        $this->publishes([
+            __DIR__.'/../resources/views' => resource_path('views/vendor/bbui'),
         ]);
     }
 

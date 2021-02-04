@@ -1,3 +1,5 @@
+@props(['title'])
+
 <article class="message">
     <div class="message-header">
         <p>{{ $title }}</p>
