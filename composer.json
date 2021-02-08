@@ -9,7 +9,9 @@
             "email": "csrhymes@gmail.com"
         }
     ],
-    "require": {},
+    "require": {
+        "phpunit/phpunit": "^9.5"
+    },
     "autoload": {
         "psr-4": {
             "BulmaBladeUi\\": "src"

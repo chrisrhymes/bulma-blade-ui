@@ -1,4 +1,4 @@
-@props(['label', 'name' => '', 'options' => [], 'value' => ''])
+@props(['label', 'name' => '', 'options' => [], 'value' => '', 'required' => false])
 <div class="field">
     <label class="label">{{ $label }}</label>
     <div class="control">
@@ -6,9 +6,10 @@
             <select name="{{ $name }}"
                     class="@if($errors->has($name)) is-danger @endif"
                     @if($attributes->has('wire:model')) wire:model="{{ $attributes->whereStartsWith('wire:model')->first() }}" @endif
+                    @if($required) required @endif
             >
                 @foreach($options as $key => $option)
-                    <option value="$key" @if($key === $value) selected @endif>
+                    <option value="{{ $key }}" @if($key === $value) selected @endif>
                         {{ $option }}
                     </option>
                 @endforeach

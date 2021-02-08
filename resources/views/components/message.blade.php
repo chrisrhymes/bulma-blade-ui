@@ -1,6 +1,6 @@
-@props(['title'])
+@props(['title', 'type' => 'is-info'])
 
-<article class="message">
+<article {{ $attributes->merge(['class' => 'message '.$type]) }}>
     <div class="message-header">
         <p>{{ $title }}</p>
         <button class="delete" aria-label="delete"></button>
