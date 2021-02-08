@@ -1,18 +1,35 @@
 # Bulma Blade UI
 
-Work in progress.
+This package is a work in progress.
 
 A set of [Laravel Blade components](https://laravel.com/docs/8.x/blade#components) for the [Bulma](https://bulma.io) Frontend Framework. Built for Laravel 8.x and Bulma 0.9.x.
 
 This package also contains some authentication views to use with [Laravel Fortify](https://laravel.com/docs/8.x/fortify).
 
+## Contents
+
+* [Getting Started](#getting-started)
+* [Publishing Views](#publishing-views)
+* [Components](#components)
+    * [Inputs](#inputs)
+    * [Card](#card)
+    * [Media](#media)
+    * [Message](#message)
+    * [Notification](#notification)
+* [Auth Views](#auth-views)
+* [Tests](#tests)
+
+## Getting Started
+
 ```bash
 composer require chrisrhymes/bulma-blade-ui
 ```
 
+The package should auto discover in Laravel. 
+
 ## Publishing Views
 
-If you would like to publish the views you can do so with the `php artisan vendor:publish` command.
+If you would like to publish the views you can do so with the `php artisan vendor:publish` command. It may lead to difficulties updating if you customise the components.
 
 ## Components
 
@@ -22,12 +39,16 @@ The package has the following components available:
 * checkbox
 * error
 * horizontal-input
+* horizontal-multi-checkbox
+* horizontal-radio
 * horizontal-select
 * horizontal-textarea
 * input
 * media
 * message
+* multi-checkbox
 * notification
+* radio
 * select
 * submit
 * textarea
@@ -40,8 +61,10 @@ The components are in the `bbui` namespace.
 
 ### Inputs
 
+* There are standard and horizontal inputs available
 * All inputs expect a label, name and value (except submit)
-* Select expect an array of options `:options="['value' => 'label', 'value2 => 'label2']"`
+* Select, radio and multi-checkboxes expect an array of options `:options="['value' => 'label', 'value2 => 'label2']"`
+* You can set `:required="true"` on the input to add the required tag
 * Set the type on submit to override the 'is-primary' default button class
 
 ### Livewire Inputs (Experimental)
@@ -82,9 +105,15 @@ The card allows a card with a title or with an image. The card also allows a foo
 Media accepts an image for the media-left, the content and an optional media right using the named slot.
 
 ```html
+<!-- Media -->
 <x-bbui::media image="/path/to/image.png" alt="Image alt text">
     The media content
-    
+</x-bbui::media>
+
+<!-- Media with media-right -->
+<x-bbui::media image="/path/to/image.png" alt="Image alt text">
+    The media content
+
     <x-slot name="right">
         <button class="delete"></button>
     </x-slot>
@@ -139,3 +168,11 @@ Fortify::resetPasswordView(function ($request) {
 ```
 
 Then set the view component you wish to extend by updating the `'auth_extends' => 'bbui::default-layout'` in the bulma-blade-ui.php config file.
+
+## Tests
+
+The package has basic tests for the components. To run the tests
+
+```bash
+composer test
+```
