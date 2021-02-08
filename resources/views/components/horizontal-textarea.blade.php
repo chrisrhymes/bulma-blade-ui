@@ -8,7 +8,7 @@
             <div class="control is-expanded">
                 <textarea id="" name="{{ $name }}"
                     class="textarea @if($errors->has($name)) is-danger @endif"
-                    @if($attributes->has('wire:model')) wire:model="{{ $attributes->whereStartsWith('wire:model')->first }}" @endif
+                    @if($attributes->has('wire:model')) wire:model="{{ $attributes->whereStartsWith('wire:model')->first() }}" @endif
                 >{{ old($name, $value) }}</textarea>
                 <x-bbui::error name="{{ $name }}"></x-bbui::error>
             </div>

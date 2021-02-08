@@ -26,5 +26,11 @@
                 "BulmaBladeUi\\BulmaBladeUiServiceProvider"
             ]
         }
+    },
+    "require-dev": {
+        "orchestra/testbench": "^6.11"
+    },
+    "scripts": {
+        "test": "phpunit"
     }
 }
