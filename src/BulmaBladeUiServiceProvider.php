@@ -20,9 +20,9 @@ class BulmaBladeUiServiceProvider extends ServiceProvider
     }
 
     public function register()
-{
-    $this->mergeConfigFrom(
-        __DIR__.'/../config/bulma-blade-ui.php', 'bulma-blade-ui'
-    );
-}
+    {
+        $this->mergeConfigFrom(
+            __DIR__.'/../config/bulma-blade-ui.php', 'bulma-blade-ui'
+        );
+    }
 }
