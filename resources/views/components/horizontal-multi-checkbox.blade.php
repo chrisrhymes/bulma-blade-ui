@@ -8,7 +8,9 @@
             <div class="control is-expanded">
                 @foreach($options as $key => $option)
                     <div class="field">
-                        <x-bbui::checkbox :label="$option" :name="$name" :value="$key" :required="$required"></x-bbui::checkbox>
+                        <x-bbui::checkbox :label="$option" :name="$name" :value="$key" :required="$required" 
+                            wire:model="{{ $attributes->whereStartsWith('wire:model')->first() }}" 
+                        ></x-bbui::checkbox>
                     </div>
                 @endforeach
                 <x-bbui::error name="{{ $name }}"></x-bbui::error>

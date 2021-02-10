@@ -11,11 +11,12 @@ trait BaseInputComponentTests
     {
         $view = $this->withViewErrors([])
             ->blade(
-                '<x-bbui::'.$this->component.' :label="$label" :name="$name"></x-bbui::'.$this->component.'>',
-                ['label' => 'The Input Label', 'name' => 'test']
+                '<x-bbui::'.$this->component.' :label="$label" :name="$name" :options="$options"></x-bbui::'.$this->component.'>',
+                ['label' => 'The Input Label', 'name' => 'test', 'options' => ['first' => 'First option']]
             );
 
         $view->assertSee('The Input Label');
+        $view->assertSee('name="test"', false);
     }
 
     /** @test */
@@ -28,7 +29,7 @@ trait BaseInputComponentTests
             );
 
         $view->assertSee('The test field is required');
-        $view->assertSee('is-danger');
+        $view->assertSee('class="help is-danger"', false);
     }
 
     /** @test */
@@ -51,6 +52,18 @@ trait BaseInputComponentTests
                 ['label' => 'The Input Label', 'name' => 'test', 'options' => ['first' => 'First option']]
             );
 
-        $view->assertSee(html_entity_decode('required'));
+        $view->assertSee('required');
+    }
+
+    /** @test */
+    public function wire_model_is_set()
+    {
+        $view = $this->withViewErrors([])
+            ->blade(
+                '<x-bbui::'.$this->component.' :label="$label" :name="$name" :wire:model="$model" :options="$options"></x-bbui::'.$this->component.'>',
+                ['label' => 'The Input Label', 'name' => 'test', 'options' => ['first' => 'First option'], 'model' => 'testModel']
+            );
+
+        $view->assertSee('wire:model="testModel"', false);
     }
 }
