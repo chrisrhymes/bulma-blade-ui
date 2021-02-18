@@ -1,11 +1,12 @@
 @props(['label', 'name' => '', 'options' => [], 'value' => '', 'required' => false])
 <div class="field">
-    <label class="label">{{ $label }}</label>
+    <label class="label" for="{{ \Illuminate\Support\Str::camel($name) }}">{{ $label }}</label>
     <div class="control">
         @foreach($options as $key => $option)
             <div class="field">
                 <label class="radio">
                     <input type="radio"
+                           id="{{ \Illuminate\Support\Str::camel($name) }}"
                            name="{{ $name }}"
                            value="{{ $key }}"
                            class="@if($errors->has($name)) is-danger @endif"
