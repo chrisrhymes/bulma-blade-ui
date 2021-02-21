@@ -1,7 +1,7 @@
 @props(['label', 'name' => '', 'value' => '', 'type' => 'text', 'required' => false, 'options' => []])
 <div class="field is-horizontal">
     <div class="field-label is-normal">
-        <label class="label" for="">{{ $label}}</label>
+        <label class="label" for="{{ \Illuminate\Support\Str::camel($name) }}">{{ $label}}</label>
     </div>
     <div class="field-body">
         <div class="field">
@@ -10,6 +10,7 @@
                     <div class="field">
                         <label class="radio">
                             <input type="radio"
+                                   id="{{ \Illuminate\Support\Str::camel($name) }}"
                                    name="{{ $name }}"
                                    value="{{ $key }}"
                                    class="@if($errors->has($name)) is-danger @endif"

@@ -20,6 +20,19 @@ trait BaseInputComponentTests
     }
 
     /** @test */
+    public function id_and_for_are_rendered()
+    {
+        $view = $this->withViewErrors([])
+            ->blade(
+                '<x-bbui::'.$this->component.' :label="$label" :name="$name" :options="$options"></x-bbui::'.$this->component.'>',
+                ['label' => 'The Input Label', 'name' => 'test_input', 'options' => ['first' => 'First option']]
+            );
+
+        $view->assertSee('id="testInput', false);
+        $view->assertSee('for="testInput', false);
+    }
+
+    /** @test */
     public function input_component_renders_error_message()
     {
         $view = $this->withViewErrors(['test' => 'The test field is required'])

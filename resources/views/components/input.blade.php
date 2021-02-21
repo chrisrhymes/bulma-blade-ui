@@ -1,8 +1,8 @@
 @props(['label', 'name' => '', 'value' => '', 'type' => 'text', 'required' => false])
 <div class="field">
-    <label class="label" for="">{{ $label}}</label>
+    <label class="label" for="{{ \Illuminate\Support\Str::camel($name) }}">{{ $label}}</label>
     <div class="control">
-        <input id="" name="{{ $name }}"
+        <input id="{{ \Illuminate\Support\Str::camel($name) }}" name="{{ $name }}"
                 type="{{ $type }}"
                 class="input @error($name) is-danger @enderror"
                 value="{{ old($name, $value) }}"
