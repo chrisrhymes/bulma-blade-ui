@@ -1,7 +1,5 @@
 # Bulma Blade UI
 
-This package is a work in progress.
-
 A set of [Laravel Blade components](https://laravel.com/docs/8.x/blade#components) for the [Bulma](https://bulma.io) Frontend Framework. Built for Laravel 8.x and Bulma 0.9.x.
 
 This package also contains some authentication views to use with [Laravel Fortify](https://laravel.com/docs/8.x/fortify).
@@ -27,9 +25,15 @@ composer require chrisrhymes/bulma-blade-ui
 
 The package should auto discover in Laravel. 
 
-## Publishing Views
+## Publishing Views & Config
 
-If you would like to publish the views you can do so with the `php artisan vendor:publish` command. It may lead to difficulties updating if you customise the components.
+If you want to use the auth views in the package then you will need to publish the config.
+
+`php artisan vendor:publish --tag=config --provider=BulmaBladeUi\\BulmaBladeUiServiceProvider`  
+
+If you would like to publish the views you can do so with the following command. It may lead to difficulties updating at a later if you customise the components.
+
+`php artisan vendor:publish --provider=BulmaBladeUi\\BulmaBladeUiServiceProvider`  
 
 ## Components
 
