@@ -2,11 +2,12 @@
 
 A set of [Laravel Blade components](https://laravel.com/docs/8.x/blade#components) for the [Bulma](https://bulma.io) Frontend Framework. Built for Laravel 8.x and Bulma 0.9.x.
 
-This package also contains some authentication views to use with [Laravel Fortify](https://laravel.com/docs/8.x/fortify).
+This package also contains authentication views to use with [Laravel Fortify](https://laravel.com/docs/8.x/fortify).
 
 ## Contents
 
 * [Getting Started](#getting-started)
+  * [Alpine js](#alpine-js)
 * [Publishing Views](#publishing-views)
 * [Components](#components)
     * [Inputs](#inputs)
@@ -23,11 +24,17 @@ This package also contains some authentication views to use with [Laravel Fortif
 composer require chrisrhymes/bulma-blade-ui
 ```
 
-The package should auto discover in Laravel. 
+The package should auto discover in Laravel 8. 
+
+### Alpine JS
+
+Some components have some interactivity, such as notifications being dismissed. The components in this package have been pre-configured to use [Alpine JS](https://github.com/alpinejs/alpine) as it is a small and easy to use JavaScript package. 
+
+Therefore, to make use of this interactivity you will need to include Alpine JS within your Laravel app. 
 
 ## Publishing Views & Config
 
-If you want to use the auth views in the package then you will need to publish the config.
+If you want to use the auth views in the package then you will need to publish the config so you can overwrite the default configuration.
 
 `php artisan vendor:publish --tag=config --provider=BulmaBladeUi\\BulmaBladeUiServiceProvider`  
 
@@ -126,7 +133,7 @@ Media accepts an image for the media-left, the content and an optional media rig
 
 ### Message
 
-The message allows you to override the type from the default 'is-info'
+The message allows you to override the type from the default 'is-info'. Alpine.js is required to dismiss the message.
 
 ```html
 <!-- Message -->
@@ -142,7 +149,7 @@ The message allows you to override the type from the default 'is-info'
 
 ### Notification
 
-The notification allows you to override the type from the default 'is-info'
+The notification allows you to override the type from the default 'is-info'. Alpine.js is required to dismiss the notification.
 
 ```html
 <!-- Notification -->
