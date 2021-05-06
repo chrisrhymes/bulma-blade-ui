@@ -133,7 +133,7 @@ Media accepts an image for the media-left, the content and an optional media rig
 
 ### Message
 
-The message allows you to override the type from the default 'is-info'. Alpine.js is required to dismiss the notification.
+The message allows you to override the type from the default 'is-info'. Alpine.js is required to dismiss the message.
 
 ```html
 <!-- Message -->
