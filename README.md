@@ -133,7 +133,9 @@ Media accepts an image for the media-left, the content and an optional media rig
 
 ### Message
 
-The message allows you to override the type from the default 'is-info'. Alpine.js is required to dismiss the message.
+The message allows you to override the type from the default 'is-info'. Alpine.js is required to dismiss the message. 
+
+From v0.1.3 the title is optional. If no title is provided then the message-header will not be displayed.
 
 ```html
 <!-- Message -->
@@ -143,6 +145,11 @@ The message allows you to override the type from the default 'is-info'. Alpine.j
 
 <!-- Message is-danger -->
 <x-bbui::message type="is-danger" title="The message title">
+    The message content
+</x-bbui::message>
+
+<!-- Title is optional -->
+<x-bbui::message>
     The message content
 </x-bbui::message>
 ```
