@@ -29,4 +29,16 @@ class MessageTest extends TestCase
         $view->assertSee('message is-danger');
         $view->assertDontSee('message is-info');
     }
+
+    /** @test */
+    public function message_title_can_be_optional()
+    {
+        $view = $this->blade(
+            '<x-bbui::message :title="$title">The message content</x-bbui::message>',
+            ['title' => null]
+        );
+
+        $view->assertSee('The message content');
+        $view->assertDontSee('message-header');
+    }
 }
