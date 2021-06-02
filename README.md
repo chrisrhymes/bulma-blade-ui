@@ -15,6 +15,7 @@ This package also contains authentication views to use with [Laravel Fortify](ht
     * [Media](#media)
     * [Message](#message)
     * [Notification](#notification)
+    * [Tabs](#tabs)
 * [Auth Views](#auth-views)
 * [Tests](#tests)
 
@@ -62,6 +63,7 @@ The package has the following components available:
 * radio
 * select
 * submit
+* tabs
 * textarea
 
 The components are in the `bbui` namespace. 
@@ -148,7 +150,7 @@ From v0.1.3 the title is optional. If no title is provided then the message-head
     The message content
 </x-bbui::message>
 
-<!-- Title is optional -->
+<!-- Message title is optional -->
 <x-bbui::message>
     The message content
 </x-bbui::message>
@@ -168,6 +170,50 @@ The notification allows you to override the type from the default 'is-info'. Alp
 <x-bbui::notification type="is-danger">
     The notification content
 </x-bbui::notification>
+```
+
+### Tabs
+
+* Pass in an array of items, setting the 'key' => 'value' for each, where the value will be used as the tab label.
+* Create an x-slot for each of the items, setting the slot name set as the 'key' from the items array. Place the tab content inside the slot.
+* You can overwrite the type of tabs by setting the `type`.
+* You can overwrite which tab displays by default by setting the `default`.
+
+The tabs component uses Alpine.js to show and hide the tab content.
+
+```html
+<!-- Tabs -->
+<x-bbui::tabs :items="['first' => 'The First Tab', 'second' => 'The Second Tab']">
+    <x-slot name="first">
+        The first tab content
+    </x-slot>
+    
+    <x-slot name="second">
+        The second tab content
+    </x-slot>
+</x-bbui::tabs>
+
+<!-- Tabs overriding the type -->
+<x-bbui::tabs :items="['first' => 'The First Tab', 'second' => 'The Second Tab']" type="is-boxed is-small">
+    <x-slot name="first">
+        The first tab content
+    </x-slot>
+    
+    <x-slot name="second">
+        The second tab content
+    </x-slot>
+</x-bbui::tabs>
+
+<!-- Tabs overriding the default tab displayed -->
+<x-bbui::tabs :items="['first' => 'The First Tab', 'second' => 'The Second Tab']" default="second">
+    <x-slot name="first">
+        The first tab content
+    </x-slot>
+    
+    <x-slot name="second">
+        The second tab content
+    </x-slot>
+</x-bbui::tabs>
 ```
 
 ## Auth Views
