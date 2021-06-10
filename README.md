@@ -16,6 +16,7 @@ This package also contains authentication views to use with [Laravel Fortify](ht
     * [Message](#message)
     * [Notification](#notification)
     * [Tabs](#tabs)
+    * [Modal](#modal)
 * [Auth Views](#auth-views)
 * [Tests](#tests)
 
@@ -58,6 +59,8 @@ The package has the following components available:
 * input
 * media
 * message
+* modal
+* modal-card
 * multi-checkbox
 * notification
 * radio
@@ -214,6 +217,63 @@ The tabs component uses Alpine.js to show and hide the tab content.
         The second tab content
     </x-slot>
 </x-bbui::tabs>
+```
+
+### Modal
+
+There are modal and modal-card components. Both require Alpine.js.
+
+* Both require a `<x-slot name="trigger">` to define the content of the button that will trigger the modal.
+* The modal component will display the content that is provided using the default `$slot`.
+* You can override the trigger button class by setting the type. By default, it uses `is-primary`.
+* Modal card requires a `title`
+* Modal card has a footer slot that contains a Cancel button to close the modal. You can override the cancel text by setting `cancel="Cancel"` attribute.
+* If you add a button to the footer that also closes the modal then ensure you add `@click="active = false"` to the button.
+
+```html
+<!-- Modal -->
+<x-bbui::modal type="is-info">
+    <x-slot name="trigger">
+        <span class="icon"><i class="fas fa-eye"></i></span>
+        <span>Open Modal</span>
+    </x-slot>
+    
+    <!-- The modal content -->
+    <div class="box">
+        <p>Modal content</p>
+    </div>
+</x-bbui::modal>
+
+<!-- Modal with image content -->
+<x-bbui::modal>
+    <x-slot name="trigger">
+        <span class="icon"><i class="fas fa-eye"></i></span>
+        <span>Open Modal</span>
+    </x-slot>
+
+    <!-- The modal content -->
+    <figure class="image is-4by3">
+        <img src="https://bulma.io/images/placeholders/1280x960.png" alt="">
+    </figure>
+</x-bbui::modal>
+
+<!-- Modal Card -->
+<x-bbui::modal-card type="is-danger" title="Are you sure?">
+    <x-slot name="trigger">
+        <span class="icon"><i class="fas fa-times"></i></span>
+        <span>Delete</span>
+    </x-slot>
+
+    <!-- The modal content -->
+    <p>Are you sure you want to delete this?</p>
+
+    <x-slot name="footer">
+        <button class="button" @click="active = false">
+            <span class="icon"><i class="fas fa-check"></i></span>
+            <span>Confirm</span>
+        </button>
+    </x-slot>
+</x-bbui::modal-card>
 ```
 
 ## Auth Views
