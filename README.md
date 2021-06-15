@@ -11,6 +11,8 @@ This package also contains authentication views to use with [Laravel Fortify](ht
 * [Publishing Views](#publishing-views)
 * [Components](#components)
     * [Inputs](#inputs)
+        * [Options](#options)
+        * [Read Only](#read-only)
     * [Card](#card)
     * [Media](#media)
     * [Message](#message)
@@ -77,15 +79,45 @@ The components are in the `bbui` namespace.
 
 ### Inputs
 
-* There are standard and horizontal inputs available
-* All inputs expect a label, name and value (except submit)
-* Select, radio and multi-checkboxes expect an array of options `:options="['value' => 'label', 'value2 => 'label2']"`
-* You can set `:required="true"` on the input to add the required tag
-* Set the type on submit to override the 'is-primary' default button class
+* There are standard (with the label above the input) and horizontal inputs (with the label to the left of the input) available.
+* All inputs expect a label, name and value (except submit).
+* You can set `:required="true"` on the input to add the required tag.
+* Set the type on submit to override the 'is-primary' default button class.
+
+#### Options
+
+Select, radio and multi-checkboxes expect an array of options `:options="['value' => 'label', 'value2 => 'label2']"`
+
+```html
+<!-- Select input, passing in the options -->
+<x-bbui::select 
+    label="Select a Tree" 
+    name="tree" 
+    :options="['oak' => 'Oak', 'ash' => 'Ash', 'maple' => 'Maple']"
+></x-bbui::select>
+
+<!-- Alternatively use a variable to pass in the options -->
+@php($trees = ['oak' => 'Oak', 'ash' => 'Ash', 'maple' => 'Maple'])
+
+<x-bbui::select 
+    label="Select a Tree" 
+    name="tree" 
+    :options="$trees"
+></x-bbui::select>
+```
+
+#### Read Only
+
+The following input components can be made readonly by setting `:readonly="true"`
+
+* horizontal-input
+* horizontal-textarea
+* input
+* textarea
 
 ### Livewire Inputs (Experimental)
 
-To use inputs with Livewire, set the `wire:model="modelName"` as an attribute with the relevant model name.
+To use inputs with Livewire, set the `wire:model="modelName"` as an attribute with the relevant model name. You don't need to set the `value=""` if using the `wire:model`.
 
 ```html
 <x-bbui::input label="Username" name="usermane" value="myusername" wire:model="modelName"></x-bbui::input>
