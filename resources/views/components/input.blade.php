@@ -1,4 +1,4 @@
-@props(['label', 'name' => '', 'value' => '', 'type' => 'text', 'required' => false])
+@props(['label', 'name' => '', 'value' => '', 'type' => 'text', 'required' => false, 'readonly' => false])
 <div class="field">
     <label class="label" for="{{ \Illuminate\Support\Str::camel($name) }}">{{ $label}}</label>
     <div class="control">
@@ -10,6 +10,7 @@
                     wire:model="{{ $attributes->whereStartsWith('wire:model')->first() }}"
                 @endif
                 @if($required) required @endif
+                @if($readonly) readonly @endif
         />
         <x-bbui::error name="{{ $name }}"></x-bbui::error>
     </div>
