@@ -1,5 +1,10 @@
 # Bulma Blade UI
 
+![Packagist Downloads](https://img.shields.io/packagist/dt/chrisrhymes/bulma-blade-ui)
+![GitHub Repo stars](https://img.shields.io/github/stars/chrisrhymes/bulma-blade-ui?style=social)
+![GitHub forks](https://img.shields.io/github/forks/chrisrhymes/bulma-blade-ui?style=social)
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/chrisrhymes/bulma-blade-ui/PHP%20Composer)
+
 A set of [Laravel Blade components](https://laravel.com/docs/8.x/blade#components) for the [Bulma](https://bulma.io) Frontend Framework. Built for Laravel 8.x and Bulma 0.9.x.
 
 This package also contains authentication views to use with [Laravel Fortify](https://laravel.com/docs/8.x/fortify).
