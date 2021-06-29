@@ -16,6 +16,7 @@
                     @endif
                     @if($required) required @endif
                     @if($readonly) readonly @endif
+                    @if($attributes->has('placeholder')) placeholder="{{ $attributes->get('placeholder') }}" @endif
                 />
                 <x-bbui::error name="{{ $name }}"></x-bbui::error>
             </div>
