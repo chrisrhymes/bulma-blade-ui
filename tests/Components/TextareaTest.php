@@ -8,6 +8,7 @@ class TextareaTest extends TestCase
 {
     use BaseInputComponentTests;
     use ReadOnlyInputComponentTests;
+    use PlaceholderInputTests;
 
     protected $component = 'textarea';
 }

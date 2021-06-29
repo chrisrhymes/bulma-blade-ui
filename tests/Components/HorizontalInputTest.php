@@ -9,6 +9,7 @@ class HorizontalInputTest extends TestCase
 {
     use BaseInputComponentTests;
     use ReadOnlyInputComponentTests;
+    use PlaceholderInputTests;
 
     protected $component = 'horizontal-input';
 
