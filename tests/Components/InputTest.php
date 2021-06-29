@@ -8,6 +8,7 @@ class InputTest extends TestCase
 {
     use BaseInputComponentTests;
     use ReadOnlyInputComponentTests;
+    use PlaceholderInputTests;
 
     protected $component = 'input';
 
