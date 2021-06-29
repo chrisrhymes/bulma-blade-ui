@@ -30,9 +30,7 @@
         }
     },
     "require-dev": {
-        "orchestra/testbench": "^6.11",
-        "brianium/paratest": "^6.3",
-        "nunomaduro/collision": "^5.4"
+        "orchestra/testbench": "^6.11"
     },
     "scripts": {
         "test": "phpunit"
