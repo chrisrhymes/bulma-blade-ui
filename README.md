@@ -18,6 +18,7 @@ This package also contains authentication views to use with [Laravel Fortify](ht
     * [Inputs](#inputs)
         * [Options](#options)
         * [Read Only](#read-only)
+        * [Placeholder](#placeholder)
     * [Card](#card)
     * [Media](#media)
     * [Message](#message)
@@ -114,6 +115,15 @@ Select, radio and multi-checkboxes expect an array of options `:options="['value
 #### Read Only
 
 The following input components can be made readonly by setting `:readonly="true"`
+
+* horizontal-input
+* horizontal-textarea
+* input
+* textarea
+
+#### Placeholder
+
+The following input components can have a placeholder set by setting the `placeholder="The placeholder text"`
 
 * horizontal-input
 * horizontal-textarea
