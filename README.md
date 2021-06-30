@@ -19,6 +19,7 @@ This package also contains authentication views to use with [Laravel Fortify](ht
         * [Options](#options)
         * [Read Only](#read-only)
         * [Placeholder](#placeholder)
+        * [Additional Classes](#additional-classes)
     * [Card](#card)
     * [Media](#media)
     * [Message](#message)
@@ -126,8 +127,27 @@ The following input components can be made readonly by setting `:readonly="true"
 The following input components can have a placeholder set by setting the `placeholder="The placeholder text"`
 
 * horizontal-input
+* horizontal-select
 * horizontal-textarea
 * input
+* select
+* textarea
+
+#### Additional Classes
+
+Bulma allows you to set the colours, sizes and states for `input`, `textarea` and `select`. You can pass in the additional classes and they will be added to the component. 
+
+```html
+<x-bbui::input label="Username" name="usermane" value="myusername" class="is-primary is-large is-rounded is-loading"></x-bbui::input>
+```
+
+This applies to the following input components
+
+* horizontal-input
+* horizontal-select
+* horizontal-textarea
+* input
+* select
 * textarea
 
 ### Livewire Inputs (Experimental)
@@ -136,6 +156,17 @@ To use inputs with Livewire, set the `wire:model="modelName"` as an attribute wi
 
 ```html
 <x-bbui::input label="Username" name="usermane" value="myusername" wire:model="modelName"></x-bbui::input>
+```
+
+You can also add `defer`, `lazy` or `debounce` to the following inputs:
+
+* horizontal-input
+* horizontal-textarea
+* input
+* textarea
+
+```html
+<x-bbui::input label="Username" name="usermane" value="myusername" wire:model.debounce.500ms="modelName"></x-bbui::input>
 ```
 
 ### Card
