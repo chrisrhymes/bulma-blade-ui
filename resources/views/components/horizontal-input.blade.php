@@ -9,14 +9,11 @@
                 <input id="{{ \Illuminate\Support\Str::camel($name) }}"
                     name="{{ $name }}"
                     type="{{ $type }}"
-                    {{ $attributes->class(['input', 'is-danger' => $errors->has($name)]) }}
+                    {{ $attributes->class(['input', 'is-danger' => $errors->has($name)])->only(['class', 'placeholder']) }}
                     value="{{ old($name, $value) }}"
-                    @if($attributes->has('wire:model'))
-                       wire:model="{{ $attributes->whereStartsWith('wire:model')->first() }}"
-                    @endif
+                   {!! $attributes->getFirstLike('wire:model') !!}
                     @if($required) required @endif
                     @if($readonly) readonly @endif
-                    @if($attributes->has('placeholder')) placeholder="{{ $attributes->get('placeholder') }}" @endif
                 />
                 <x-bbui::error name="{{ $name }}"></x-bbui::error>
             </div>

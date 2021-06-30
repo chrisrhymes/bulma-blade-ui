@@ -3,6 +3,7 @@
 namespace BulmaBladeUi;
 
 use Illuminate\Support\ServiceProvider;
+use Illuminate\View\ComponentAttributeBag;
 
 class BulmaBladeUiServiceProvider extends ServiceProvider
 {
@@ -17,6 +18,18 @@ class BulmaBladeUiServiceProvider extends ServiceProvider
         $this->publishes([
             __DIR__.'/../resources/views' => resource_path('views/vendor/bbui'),
         ]);
+
+        ComponentAttributeBag::macro('getFirstLike', function ($search) {
+            $matches = preg_grep("/{$search}/", array_keys($this->attributes));
+
+            if(empty($matches)) {
+                return null;
+            }
+
+            $key = $matches[0];
+
+            return "{$key}=\"{$this->attributes[$key]}\"";
+        });
     }
 
     public function register()

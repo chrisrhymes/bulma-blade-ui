@@ -10,7 +10,7 @@
                            name="{{ $name }}"
                            value="{{ $key }}"
                            class="@if($errors->has($name)) is-danger @endif"
-                           @if($attributes->has('wire:model')) wire:model="{{ $attributes->whereStartsWith('wire:model')->first() }}" @endif
+                           {!! $attributes->getFirstLike('wire:model') !!}
                            @if($required) required @endif
                            @if($key === $value) checked @endif
                     />

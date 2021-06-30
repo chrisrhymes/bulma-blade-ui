@@ -9,7 +9,7 @@
                 <div class="select is-fullwidth">
                     <select name="{{ $name }}" id="{{ \Illuminate\Support\Str::camel($name) }}"
                             class="@if($errors->has($name)) is-danger @endif"
-                            @if($attributes->has('wire:model')) wire:model="{{ $attributes->whereStartsWith('wire:model')->first() }}" @endif
+                            {!! $attributes->getFirstLike('wire:model') !!}
                             @if($required) required @endif
                     >
                         @foreach($options as $key => $option)
