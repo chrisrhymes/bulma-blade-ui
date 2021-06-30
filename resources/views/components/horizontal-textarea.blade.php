@@ -7,7 +7,7 @@
         <div class="field">
             <div class="control is-expanded">
                 <textarea id="{{ \Illuminate\Support\Str::camel($name) }}" name="{{ $name }}"
-                    class="textarea @if($errors->has($name)) is-danger @endif"
+                    {{ $attributes->class(['textarea', 'is-danger' => $errors->has($name)]) }}
                     @if($attributes->has('wire:model')) wire:model="{{ $attributes->whereStartsWith('wire:model')->first() }}" @endif
                     @if($required) required @endif
                     @if($readonly) readonly @endif

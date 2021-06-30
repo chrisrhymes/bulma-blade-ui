@@ -4,7 +4,7 @@
     <div class="control">
         <input id="{{ \Illuminate\Support\Str::camel($name) }}" name="{{ $name }}"
                 type="{{ $type }}"
-                class="input @error($name) is-danger @enderror"
+                {{ $attributes->class(['input', 'is-danger' => $errors->has($name)]) }}
                 value="{{ old($name, $value) }}"
                 @if($attributes->has('wire:model'))
                     wire:model="{{ $attributes->whereStartsWith('wire:model')->first() }}"

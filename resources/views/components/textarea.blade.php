@@ -5,7 +5,7 @@
         <textarea id="{{ \Illuminate\Support\Str::camel($name) }}"
                   name="{{ $name }}"
                   @isset($type) type="{{ $type }}" @else type="text" @endisset
-                  class="textarea @if($errors->has($name)) is-danger @endif"
+                  {{ $attributes->class(['textarea', 'is-danger' => $errors->has($name)]) }}
                   @if($attributes->has('wire:model')) wire:model="{{ $attributes->whereStartsWith('wire:model')->first() }}" @endif
                   @if($required) required @endif
                   @if($readonly) readonly @endif
