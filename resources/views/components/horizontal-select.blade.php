@@ -12,7 +12,7 @@
                             @if($required) required @endif
                     >
                         @if($attributes->has('placeholder'))
-                            <option value="">{{ $attributes->get('placeholder') }}</option>
+                            <option value="" hidden>{{ $attributes->get('placeholder') }}</option>
                         @endif
                         @foreach($options as $key => $option)
                             <option value="{{ $key }}" @if($key == $value) selected @endif>
