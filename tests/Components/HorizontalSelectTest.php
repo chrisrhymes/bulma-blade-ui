@@ -45,6 +45,6 @@ class HorizontalSelectTest extends TestCase
                 ['label' => 'The Input Label', 'name' => 'test', 'options' => ['first' => 'First option'], 'placeholder' => 'Select an option']
             );
 
-        $view->assertSee('<option value="">Select an option</option>', false);
+        $view->assertSee('<option value="" hidden>Select an option</option>', false);
     }
 }
