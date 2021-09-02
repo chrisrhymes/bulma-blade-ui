@@ -29,6 +29,7 @@ This package also contains authentication views to use with [Laravel Fortify](ht
 * [Views](#views)
     * [Pagination](#pagination)
     * [Simple Pagination](#simple-pagination)
+    * [Menu](#menu)
 * [Auth Views](#auth-views)
 * [Tests](#tests)
 
@@ -386,6 +387,49 @@ You can use the simple pagination view for the package by setting the view in th
 ```
 
 For Livewire simple pagination, use the `bbui::livewire.simple-pagination` view. This replaces the href with the relevant wire:click settings.
+
+### Menu
+
+Use the menu builder to create a menu. The menu builder has three methods, `addLabel()`, `addItem()` and `addSubItem()`.
+
+#### addLabel()
+* `addLabel()` adds a new label to the menu. 
+* You can have multiple labels per menu. 
+* Pass in a string
+
+#### addItem()
+* `addItem()` adds an item to the last label added
+* If no labels have been added yet, a MenuException will be thrown
+* Pass in a string for the route (used in the link) and a string for the anchor text
+
+#### addSubItem()
+* `addSubItem()` adds a sub nav item to the last item added
+* If no items have been added yet, a MenuException will be thrown
+* Pass in a string for the route (used in the link) and a string for the anchor text
+
+```php
+use BulmaBladeUi\Menu\MenuBuilder;
+
+$myMenu = new MenuBuilder();
+
+// Example with top level menu
+$myMenu->addLabel('Label Text')
+    ->addItem(route('home'), 'Home')
+    ->addItem(route('login'), 'Login');
+
+// Example with sub items
+$myMenu->addLabel('Label Text')
+    ->addItem(route('foo'), 'Foos')
+    ->addSubItem(route('foo.create'), 'Create Foo')
+    ->addSubItem(route('foo.edit'), 'Edit Foo')
+    ->addItem(route('bar'), 'Bars')
+    ->addSubItem(route('bar.create'), 'Create Bar')
+```
+
+In your blade file, include the 'bbui::menu' view and pass in your menu with the 'menus' key, ensuring to call `->get()` on the end. 
+```html
+@include('bbui::menu', ['menus' => $myMenu->get()])
+```
 
 ## Auth Views
 
