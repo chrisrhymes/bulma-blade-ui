@@ -26,6 +26,9 @@ This package also contains authentication views to use with [Laravel Fortify](ht
     * [Notification](#notification)
     * [Tabs](#tabs)
     * [Modal](#modal)
+* [Views](#views)
+    * [Pagination](#pagination)
+    * [Simple Pagination](#simple-pagination)
 * [Auth Views](#auth-views)
 * [Tests](#tests)
 
@@ -353,6 +356,36 @@ There are modal and modal-card components. Both require Alpine.js.
     </x-slot>
 </x-bbui::modal-card>
 ```
+
+## Views
+
+### Pagination
+
+The pagination view provides next, previous and a pagination list of page numbers. The page numbers are centered between the next and previous page buttons.
+
+You can use the pagination view for the package by setting the view in the `->links()` method, as shown below, or using other methods described in the [Laravel docs](https://laravel.com/docs/8.x/pagination#customizing-the-pagination-view). 
+
+```html
+@php($users = User::paginate())
+
+{{ $users->links('bbui::pagination') }}
+```
+
+For Livewire pagination, use the `bbui::livewire.pagination` view. This replaces the href with the relevant wire:click settings.
+
+### Simple Pagination
+
+The simple pagination view provides next and previous page buttons.
+
+You can use the simple pagination view for the package by setting the view in the `->links()` method, as shown below, or using other methods described in the [Laravel docs](https://laravel.com/docs/8.x/pagination#customizing-the-pagination-view).
+
+```html
+@php($users = User::paginate())
+
+{{ $users->links('bbui::simple-pagination') }}
+```
+
+For Livewire simple pagination, use the `bbui::livewire.simple-pagination` view. This replaces the href with the relevant wire:click settings.
 
 ## Auth Views
 

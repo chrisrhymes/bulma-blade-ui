@@ -12,6 +12,7 @@
     </testsuite>
   </testsuites>
   <php>
+    <env name="DB_CONNECTION" value="testing"/>
     <env name="CACHE_DRIVER" value="array"/>
   </php>
 </phpunit>
