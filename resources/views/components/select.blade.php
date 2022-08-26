@@ -1,4 +1,4 @@
-@props(['label', 'name' => '', 'options' => [], 'value' => '', 'required' => false])
+@props(['label', 'name' => '', 'options' => [], 'value' => '', 'required' => false, 'hidePlaceholderFromSelection' => false])
 <div class="field">
     <label class="label" for="{{ \Illuminate\Support\Str::camel($name) }}">{{ $label }}</label>
     <div class="control">
@@ -9,7 +9,7 @@
                     @if($required) required @endif
             >
                 @if($attributes->has('placeholder'))
-                    <option value="" hidden>{{ $attributes->get('placeholder') }}</option>
+                    <option value="" @if($hidePlaceholderFromSelection) hidden @endif>{{ $attributes->get('placeholder') }}</option>
                 @endif
                 @foreach($options as $key => $option)
                     <option value="{{ $key }}" @if($key === $value) selected @endif>
