@@ -45,6 +45,18 @@ class SelectTest extends TestCase
                 ['label' => 'The Input Label', 'name' => 'test', 'options' => ['first' => 'First option'], 'placeholder' => 'Select an option']
             );
 
-        $view->assertSee('<option value="">Select an option</option>', false);
+        $view->assertSee('<option value="" >Select an option</option>', false);
+    }
+
+    /** @test */
+    public function select_render_placeholder_but_hides_it_from_selection_when_set()
+    {
+        $view = $this->withViewErrors([])
+            ->blade(
+                '<x-bbui::'.$this->component.' :label="$label" :name="$name" :options="$options" :placeholder="$placeholder" :hide-placeholder-from-selection="$hidePlaceholderFromSelection"></x-bbui::'.$this->component.'>',
+                ['label' => 'The Input Label', 'name' => 'test', 'options' => ['first' => 'First option'], 'placeholder' => 'Select an option', 'hidePlaceholderFromSelection' => true]
+            );
+
+        $view->assertSee('<option value=""  hidden >Select an option</option>', false);
     }
 }
